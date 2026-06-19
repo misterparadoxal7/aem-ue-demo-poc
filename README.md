@@ -697,7 +697,9 @@ React keeps fetching the same JSON — no API changes needed.
 
 ## Component → AEM Mapping
 
-AEM resource types are mapped to React components in `src/ComponentRegistry.jsx` using `@adobe/aem-react-editable-components`'s `MapTo` function:
+### Current approach (deprecated SPA SDK)
+
+AEM resource types are mapped to React components in `src/ComponentRegistry.jsxx` using `@adobe/aem-react-editable-components`'s `MapTo` function:
 
 ```js
 MapTo('ue-demo/components/hero')(Hero)
@@ -705,7 +707,83 @@ MapTo('ue-demo/components/card')(Card)
 // ... 16 mappings total
 ```
 
-All UE-instrumented components use `data-aue-*` attributes for inline editing (e.g., `data-aue-prop`, `data-aue-type`).
+**`App.jsx`** uses `AEMPage` from the SDK to auto-render components:
+```jsx
+import { AEMPage } from '@adobe/aem-react-editable-components'
+
+function App() {
+  const { content, resourcePath } = usePageContent()
+  return <AEMPage content={content} resourcePath={resourcePath} />
+  // AEMPage reads sling:resourceType from each child,
+  // looks up MapTo registry, and renders the right component
+}
+```
+
+### Recommended approach (manual, UE best practice)
+
+The `@adobe/aem-react-editable-components` SDK is **deprecated** (Adobe retired the SPA Editor). The Universal Editor works with **plain React** — no SDK needed. Replace `MapTo` and `AEMPage` with a simple component map + renderer:
+
+**`lib/ComponentMap.js`** — plain object:
+```jsx
+import Hero from '../components/Hero'
+import Card from '../components/Card'
+import CardGrid from '../components/CardGrid'
+
+export const componentMap = {
+  'ue-demo/components/hero': Hero,
+  'ue-demo/components/card': Card,
+  'ue-demo/components/cardgrid': CardGrid,
+}
+```
+
+**`lib/DynamicRenderer.js`** — switch on resource type:
+```jsx
+import { componentMap } from './ComponentMap'
+
+export function DynamicRenderer({ content, resourceType }) {
+  if (!content || !resourceType) return null
+  const Component = componentMap[resourceType]
+  if (!Component) return <div>Unknown: {resourceType}</div>
+  return <Component {...content} />
+}
+```
+
+**`App.jsx`** — manual iteration over children:
+```jsx
+function App() {
+  const { content } = usePageContent()
+  if (!content) return null
+
+  const childKeys = Object.keys(content).filter(
+    key => content[key]?.['sling:resourceType']
+  )
+
+  return (
+    <div>
+      <Header navLinks={content.navLinks} />
+      {childKeys.map(key => (
+        <DynamicRenderer
+          key={key}
+          content={content[key]}
+          resourceType={content[key]['sling:resourceType']}
+        />
+      ))}
+      <Footer copyright={content.footerCopyright} />
+    </div>
+  )
+}
+```
+
+**Comparison:**
+
+| | SPA SDK (`MapTo`) | Manual (UE recommendation) |
+|---|---|---|
+| **Dependencies** | `@adobe/aem-react-editable-components` | Zero — plain React |
+| **Bundle size** | ~15 KB extra | Nothing |
+| **Deprecated** | Yes (SPA Editor retired) | No — Adobe's current guidance |
+| **Flexibility** | Tied to SDK internals | Full control over rendering, layout |
+
+All UE-instrumented components use `data-aue-*` attributes for inline editing (e.g., `data-aue-prop`, `data-aue-type`) — this stays the same regardless of the mapping approach.
 
 ---
 
