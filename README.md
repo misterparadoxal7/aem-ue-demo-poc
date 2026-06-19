@@ -554,6 +554,147 @@ browser (React app)
 
 ---
 
+## How React and AEM Work Together
+
+### React is independent of AEM
+
+React is a standalone SPA. AEM is just a JSON API — React doesn't use AEM's page structure, templates, or rendering engine.
+
+```
+React (hosted on Vite/Vercel/CloudFront)
+  │
+  ├── fetch /content/ue-demo/en/home/jcr:content.infinity.json
+  │
+  └── renders based on the JSON, not AEM's URL structure
+```
+
+React defines its own routes in `App.jsx`:
+
+```jsx
+<HashRouter>
+  <Routes>
+    <Route path="/" element={<HomePage />} />
+    <Route path="/about" element={<AboutPage />} />
+    <Route path="/services" element={<ServicesPage />} />
+  </Routes>
+</HashRouter>
+```
+
+AEM doesn't know about these routes. React fetches one JSON endpoint and decides what to render based on the content data.
+
+### React reads JCR content via JSON
+
+AEM stores content in JCR (Java Content Repository) and exposes it as JSON. React never touches JCR directly — it speaks HTTP + JSON:
+
+**`contentService.js`** — fetches JSON from AEM:
+```js
+jsonUrl = '/content/ue-demo/en/home/jcr:content.infinity.json'
+resp = await fetch(jsonUrl)
+```
+
+AEM returns:
+```json
+{
+  "jcr:title": "Home",
+  "hero": { "title": "Hello", "subtitle": "We build..." },
+  "cardgrid": { "heading": "Our Services", "services": {...} }
+}
+```
+
+React components consume this as plain props:
+
+**`HomePage.jsx`**:
+```jsx
+function HomePage() {
+  const { content } = usePageContent()
+  return <Hero title={content.hero.title} subtitle={content.hero.subtitle} />
+}
+```
+
+### How authoring works
+
+When an author edits content in the Universal Editor:
+
+```
+Author clicks hero title → types "New Title"
+  │
+  ▼
+Universal Editor sends PATCH to UE Service (:8001)
+  │
+  ▼
+UE Service forwards to AEM via :8443 proxy → AEM :4502
+  │
+  ▼
+AEM writes to JCR: hero/title = "New Title"
+```
+
+On page reload, React fetches the JSON again and sees the updated content. **No React redeployment needed for content changes.**
+
+### Adding a new component — both sides
+
+When the React team creates a new component, the AEM team must create a matching component definition. Here's the full flow:
+
+**React developer** creates `Banner.jsx`:
+```jsx
+function Banner({ title, text }) {
+  return (
+    <div data-aue-prop="title" data-aue-type="text">{title}</div>
+  )
+}
+```
+
+Registers it in `ComponentRegistry.jsx`:
+```jsx
+MapTo('ue-demo/components/banner')(Banner)
+```
+
+**AEM developer** creates the AEM component definition at `ui.apps/src/main/content/jcr_root/apps/ue-demo/components/banner/.content.xml`:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="sling:Folder"
+          sling:resourceSuperType="ue-demo/components/page/nexusdigital"/>
+```
+
+Adds the data model to the content push script for initial content:
+```python
+"banner": {
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "ue-demo/components/banner",
+  "title": "Welcome",
+  "text": "Hello world"
+}
+```
+
+The React app is deployed once with the new component. After that, content authors can edit the banner's title and text through the UE editor — **no further React changes needed for content updates.**
+
+### Adding a new route/page
+
+**React developer** adds a new route in `App.jsx`:
+```jsx
+<Route path="/pricing" element={<PricingPage />} />
+```
+
+Creates `PricingPage.jsx` that uses `usePageContent()` — which fetches the same single JSON endpoint. The page decides which pieces of content to render.
+
+**AEM developer** either:
+- Adds new content properties to the existing page in `push-content-to-aem.py`, OR
+- Creates a new AEM page (new child node under `/content/ue-demo/en/pricing`) with its own `jcr:content` node
+
+React keeps fetching the same JSON — no API changes needed.
+
+### Responsibility matrix
+
+| Who | Responsible for |
+|---|---|
+| **React Developer** | React components, routes, UI logic, component registration, data attribute annotations |
+| **AEM Developer** | AEM component definitions (`.content.xml`), content model, initial content in push script |
+| **Content Author** | Editing text/images in UE, adding/removing components from pages |
+| **AEM (platform)** | Storing content (JCR), serving JSON API |
+
+---
+
 ## Component → AEM Mapping
 
 AEM resource types are mapped to React components in `src/ComponentRegistry.jsx` using `@adobe/aem-react-editable-components`'s `MapTo` function:
