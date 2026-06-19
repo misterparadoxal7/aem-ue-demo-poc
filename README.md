@@ -65,7 +65,7 @@ A proof-of-concept React SPA instrumented for the **Adobe Universal Editor**, ru
 | **4502** | AEM SDK | HTTP | AEM author instance (Java). The content repository and page rendering engine. |
 | **8443** | AEM SSL Proxy | HTTPS | Wraps AEM (`:4502`) in HTTPS. Injects `Basic YWRtaW46YWRtaW4=` fallback auth. Strips `X-Frame-Options`. The UE Service talks to AEM through this port. |
 | **8000** | UE Service | HTTP | Local copy of Adobe's Universal Editor Service. Handles inline edits and proxies them to AEM. Requires `UES_DISABLE_IMS_VALIDATION=true` for local use. |
-| **8001** | UES SSL Proxy | HTTPS | Wraps UE Service (`:8000`) in HTTPS. Injects `Basic YWRtaW46YWRtaW4=` as a bootstrap fallback so the editor UI can fetch its configuration. Prefers a user-supplied `Authorization` header if one is present. |
+| **8001** | UES SSL Proxy | HTTPS | Wraps UE Service (`:8000`) in HTTPS. Injects `Basic YWRtaW46YWRtaW4=` as a bootstrap fallback so the editor UI can fetch its configuration. Intercepts `/configuration` POST requests to inject a `publishUrl` pointing back to `https://localhost:8443` (needed for preview/publish on AEM SDK which has no publish tier). Prefers a user-supplied `Authorization` header if one is present. |
 
 ---
 
@@ -247,6 +247,7 @@ curl -sk -X POST -H "Content-Type: application/json" \
 **What this does:**
 - `:8443` → forwards to AEM (`:4502`), injects `Basic YWRtaW46YWRtaW4=`, strips `X-Frame-Options`, fixes `SameSite` cookies
 - `:8001` → forwards to UE Service (`:8000`), injects `Basic YWRtaW46YWRtaW4=` only if the request doesn't already have an `Authorization` header (this bootstraps the editor — the `/configuration` endpoint requires auth)
+- **`publishUrl` injection**: intercepts `/configuration` POSTs and adds `"publishUrl": "https://localhost:8443"` to each connection, so the editor's "Publish" button works against the local AEM SDK (which has no separate publish tier)
 
 ### Step 7: Start the Universal Editor Service
 
@@ -404,8 +405,11 @@ aem-ue-demo-poc/
 │   │   └── mock-content.json          # Fallback content for standalone mode
 │   └── vite.config.js                 # Dev server :3100, proxy to :8443
 │
+├── .gitignore                          # Excludes node_modules, target, certs, etc.
 ├── scripts/
 │   ├── ssl-proxy.js                   # Dual SSL proxy (8443→AEM, 8001→UES)
+│   ├── setup.sh                       # One-command automated setup (install + start)
+│   ├── push-content-to-aem.py         # Creates demo content in AEM
 │   └── certs/                         # mkcert trusted certificates
 │       ├── localhost+2.pem
 │       └── localhost+2-key.pem
@@ -535,13 +539,13 @@ The app uses `HashRouter`. All routes are prefixed with `#/`.
 ```
 browser (React app)
   │
-  ├─ fetch /content/ue-demo/en/home/jcr:content.json
+  ├─ fetch /content/ue-demo/en/home/jcr:content.infinity.json
   │    └─ Vite proxy → https://localhost:8443 (AEM SSL proxy) → AEM :4502
   │
   └─ if AEM is unreachable → public/mock-content.json (fallback)
 ```
 
-1. React app fetches page content as JSON from AEM
+1. React app fetches page content as JSON from AEM using `infinity.json` (includes child nodes)
 2. Vite proxies the request to `https://localhost:8443` (the AEM SSL proxy)
 3. The proxy injects Basic auth and forwards to AEM on `:4502`
 4. If AEM is unavailable, the app falls back to `public/mock-content.json`

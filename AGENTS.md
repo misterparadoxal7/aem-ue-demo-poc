@@ -133,8 +133,11 @@ aem-ue-demo-poc/
 │   ├── public/
 │   │   └── mock-content.json     # Fallback content (no AEM needed)
 │   └── vite.config.js            # Port 3100, proxy /content → :8443
+├── .gitignore                    # Excludes node_modules, target, certs, screenshots, etc.
 ├── scripts/
-│   ├── ssl-proxy.js              # Dual proxy (8443→AEM injects auth, 8001→UES injects auth fallback)
+│   ├── ssl-proxy.js              # Dual proxy (8443→AEM injects auth, 8001→UES injects auth fallback + publishUrl)
+│   ├── setup.sh                  # One-command automated setup script
+│   ├── push-content-to-aem.py    # Create demo content in AEM
 │   └── certs/                    # mkcert trusted certs (localhost+2.pem, localhost+2-key.pem)
 ├── ue-service/                   # Local UE Service (universal-editor-service.cjs)
 ├── ui.apps/                      # AEM components + clientlib (deployed React build)
@@ -149,7 +152,7 @@ aem-ue-demo-poc/
 
 ## Content Data Flow
 
-1. React fetches `/content/ue-demo/en/home/jcr:content.json`
+1. React fetches `/content/ue-demo/en/home/jcr:content.infinity.json` (includes child nodes like `hero`, `cardgrid`, etc.)
 2. Vite proxies to `https://localhost:8443` (AEM SSL proxy, injects auth)
 3. If AEM unreachable → falls back to `public/mock-content.json`
 4. Content is JCR page properties (not Content Fragments)
@@ -218,9 +221,10 @@ cd react-app && npm run dev
 - **No TypeScript** — all `.jsx` / `.js`
 - **Build output**: `react-app/dist/` → copied to AEM clientlib
 - **AEM clientlib**: `ui.apps/.../clientlibs/clientlib-nexusdigital/`
-- **SSL proxy roles**: Both :8443 and :8001 inject Basic auth fallback (`admin:admin`), but only when no `Authorization` header is already present. :8001's injection is required to bootstrap the editor UI (the `/configuration` endpoint needs auth). User-supplied headers (from the Authentication headers panel in the editor) take precedence.
+- **SSL proxy roles**: Both :8443 and :8001 inject Basic auth fallback (`admin:admin`), but only when no `Authorization` header is already present. :8001's injection is required to bootstrap the editor UI (the `/configuration` endpoint needs auth). User-supplied headers (from the Authentication headers panel in the editor) take precedence. :8001 also intercepts `/configuration` requests to inject `publishUrl: https://localhost:8443` so preview/publish works without a separate publish tier.
 - **local-ssl-proxy certs**: mkcert certs in `scripts/certs/` — restart proxy after cert changes
 - **Content push**: `scripts/push-content-to-aem.py` — Python 3 script using urllib. Content is hardcoded in the script. Edit the script, then re-run to update.
+- **Content fetch URL**: Uses `jcr:content.infinity.json` (not `.json`) — the plain `.json` endpoint only returns page properties, not child nodes like `hero`.
 
 ## MCP Servers
 
