@@ -1,0 +1,193 @@
+{
+  "jcr:primaryType": "cq:PageContent",
+  "jcr:title": "Home",
+  "siteTitle": "Nexus Digital",
+  "footerCopyright": "\u00a9 2026 Nexus Digital. All rights reserved.",
+  "infoTooltip": "Trusted by over 500 companies worldwide, including Fortune 500 organizations across multiple industries.",
+  "navLinks": {
+    "item0": { "label": "Home", "url": "/" },
+    "item1": { "label": "About", "url": "/about" },
+    "item2": { "label": "Services", "url": "/services" },
+    "item3": { "label": "Portfolio", "url": "/portfolio" },
+    "item4": { "label": "Contact", "url": "/contact" }
+  },
+  "hero": {
+    "title": "Transform Your Digital Presence",
+    "subtitle": "We build experiences that drive growth",
+    "description": "<p>Nexus Digital is a full-service digital experience agency. We help brands create meaningful connections with their audiences through innovative design, cutting-edge technology, and data-driven strategies.</p>",
+    "ctaLabel": "Get Started",
+    "ctaUrl": "/contact",
+    "bgImage": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
+  },
+  "logocloud": {
+    "heading": "Trusted by Industry Leaders"
+  },
+  "cardgrid": {
+    "heading": "Our Services",
+    "services": {
+      "item0": {
+        "title": "UI/UX Design",
+        "description": "We create intuitive, user-centered designs that delight users and drive engagement across all digital touchpoints.",
+        "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+        "ctaLabel": "Learn More",
+        "ctaUrl": "#",
+        "category": "Design"
+      },
+      "item1": {
+        "title": "Web Development",
+        "description": "From React SPAs to AEM-powered sites, we build fast, scalable, and maintainable web applications using modern tech stacks.",
+        "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
+        "ctaLabel": "Explore",
+        "ctaUrl": "#",
+        "category": "Web App"
+      },
+      "item2": {
+        "title": "Digital Strategy",
+        "description": "Data-driven strategies that align your business goals with user needs, ensuring measurable results and sustainable growth.",
+        "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80",
+        "ctaLabel": "Discover",
+        "ctaUrl": "#",
+        "category": "Cloud"
+      },
+      "item3": {
+        "title": "Cloud & DevOps",
+        "description": "End-to-end cloud infrastructure, CI/CD pipelines, and AEM managed services to keep your digital experience running smoothly.",
+        "image": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&q=80",
+        "ctaLabel": "See More",
+        "ctaUrl": "#",
+        "category": "Cloud"
+      },
+      "item4": {
+        "title": "Content Strategy",
+        "description": "Compelling content that tells your brand story, optimized for SEO and personalized across every customer touchpoint.",
+        "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+        "ctaLabel": "Learn More",
+        "ctaUrl": "#",
+        "category": "Design"
+      },
+      "item5": {
+        "title": "Analytics & Optimization",
+        "description": "Measure, analyze, and optimize your digital experiences with actionable insights and A/B testing at scale.",
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+        "ctaLabel": "Get Insights",
+        "ctaUrl": "#",
+        "category": "Web App"
+      }
+    }
+  },
+  "whysection": {
+    "heading": "Why Nexus Digital?",
+    "body": "<p>We combine creative design with technical excellence to deliver digital experiences that drive measurable results. Our team of strategists, designers, and engineers work collaboratively to transform complex challenges into elegant solutions.</p><p>From startups to enterprise, we have helped hundreds of organizations establish and scale their digital presence with confidence.</p>",
+    "approachHeading": "Our Approach",
+    "approachDescription": "Every project begins with deep research and strategic thinking. We believe in data-driven design decisions and iterative development that puts your users first."
+  },
+  "teaser": {
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80",
+    "title": "Ready to Transform Your Digital Experience?",
+    "description": "Join hundreds of companies that trust Nexus Digital to build, scale, and optimize their digital presence. Let's create something extraordinary together.",
+    "ctaLabel": "Start Your Project",
+    "ctaUrl": "/contact"
+  },
+  "statsbar": {
+    "heading": "Our Impact by the Numbers",
+    "stats": {
+      "item0": { "value": "500+", "label": "Clients" },
+      "item1": { "value": "50M+", "label": "Users Served" },
+      "item2": { "value": "98%", "label": "Satisfaction Rate" },
+      "item3": { "value": "15+", "label": "Years Experience" }
+    }
+  },
+  "testimonial": {
+    "quote": "<p>Nexus Digital transformed our online presence completely. The team's expertise and dedication exceeded our expectations.</p>",
+    "author": "Sarah Chen",
+    "role": "CEO, TechVista Solutions",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80"
+  },
+  "accordion": {
+    "heading": "Frequently Asked Questions",
+    "accordionItems": {
+      "item0": {
+        "title": "What services does Nexus Digital offer?",
+        "content": "<p>We offer a comprehensive range of digital services including UI/UX design, web development, digital strategy, cloud & DevOps, content strategy, and analytics & optimization. Our team of 50+ specialists works across industries to deliver end-to-end digital experiences.</p>"
+      },
+      "item1": {
+        "title": "How long does a typical project take?",
+        "content": "<p>Project timelines vary based on scope and complexity. A typical website redesign takes 8-16 weeks from discovery to launch. Larger transformation projects can take 3-6 months. We'll provide a detailed timeline during our initial consultation.</p>"
+      },
+      "item2": {
+        "title": "Do you work with AEM projects?",
+        "content": "<p>Yes! We are AEM specialists. Our team has extensive experience with Adobe Experience Manager including AEM as a Cloud Service, content fragment models, headless implementations, Universal Editor integration, and custom component development.</p>"
+      },
+      "item3": {
+        "title": "What is your pricing model?",
+        "content": "<p>We offer flexible pricing models including project-based fixed pricing, time & materials, and dedicated team engagement. Contact us for a customized proposal based on your specific requirements and budget.</p>"
+      }
+    }
+  },
+  "linklist": {
+    "heading": "Related Resources",
+    "links": {
+      "item0": { "label": "Case Studies", "url": "#" },
+      "item1": { "label": "Documentation", "url": "#" },
+      "item2": { "label": "Blog & Insights", "url": "#" },
+      "item3": { "label": "Resource Library", "url": "#" }
+    }
+  },
+  "newslettersection": {},
+  "missionsection": {
+    "heading": "Our Mission & Values",
+    "subtitle": "We believe in building technology that makes a real difference",
+    "missionItems": {
+      "item0": { "icon": "\ud83c\udfaf", "title": "Purpose-Driven", "desc": "Every project starts with understanding your core mission and goals." },
+      "item1": { "icon": "\ud83e\udd1d", "title": "Collaborative", "desc": "We partner closely with your team, ensuring alignment at every stage." },
+      "item2": { "icon": "\ud83d\udd2c", "title": "Data-Informed", "desc": "Design and development decisions are backed by research and analytics." },
+      "item3": { "icon": "\ud83d\ude80", "title": "Results-Focused", "desc": "We measure success by the tangible impact delivered to your business." }
+    }
+  },
+  "teamsection": {
+    "heading": "Leadership Team",
+    "subtitle": "Meet the people driving digital innovation at Nexus Digital"
+  },
+  "story": {
+    "heading": "Our Story",
+    "body": "<p>Founded in 2011, Nexus Digital started as a small team of passionate designers and developers with a shared vision: to create digital experiences that truly make a difference. Over the past 15 years, we've grown into a full-service digital agency with over 50 specialists across strategy, design, development, and operations.</p><p>Our journey has been defined by a relentless commitment to innovation, quality, and client success. We've had the privilege of working with Fortune 500 companies, ambitious startups, and everything in between.</p>",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+  },
+  "processsteps": {
+    "heading": "Our Process",
+    "subtitle": "A proven methodology that delivers results"
+  },
+  "pricingtable": {
+    "heading": "Pricing Plans",
+    "subtitle": "Flexible plans to fit your needs"
+  },
+  "contactform": {
+    "heading": "Send Us a Message",
+    "formNameLabel": "Full Name",
+    "formNamePlaceholder": "John Doe",
+    "formEmailLabel": "Email Address",
+    "formEmailPlaceholder": "john@example.com",
+    "formSubjectLabel": "Subject",
+    "formMessageLabel": "Your Message",
+    "formMessagePlaceholder": "Tell us about your project...",
+    "formCheckboxLabel": "I agree to the privacy policy",
+    "formRadioLabel": "Preferred contact method",
+    "formSubmitLabel": "Send Message",
+    "subjectOptions": {
+      "item0": { "label": "General Inquiry", "value": "general" },
+      "item1": { "label": "Project Quote", "value": "quote" },
+      "item2": { "label": "Support", "value": "support" }
+    },
+    "radioOptions": {
+      "item0": { "label": "Email", "value": "email" },
+      "item1": { "label": "Phone", "value": "phone" }
+    }
+  },
+  "ctasection": {
+    "heading": "Ready to Start Your Project?",
+    "subtitle": "Let's build something remarkable together",
+    "ctaLabel": "Let's Build Something Together"
+  },
+  "relatedHeading": "Related Resources",
+  "relatedSubtitle": "Explore helpful guides and documentation"
+}

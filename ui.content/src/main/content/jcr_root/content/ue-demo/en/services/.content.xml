@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/ue-demo/settings/wcm/templates/nexusdigital"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Services"
+        sling:resourceType="ue-demo/components/page/nexusdigital"
+        siteTitle="Nexus Digital"
+        footerCopyright="&#169; 2026 Nexus Digital. All rights reserved."
+        relatedHeading="Related Resources"
+        relatedSubtitle="Explore helpful guides and documentation">
+        <navLinks jcr:primaryType="nt:unstructured">
+            <item0 jcr:primaryType="nt:unstructured" label="Home" url="/"/>
+            <item1 jcr:primaryType="nt:unstructured" label="About" url="/about"/>
+            <item2 jcr:primaryType="nt:unstructured" label="Services" url="/services"/>
+            <item3 jcr:primaryType="nt:unstructured" label="Portfolio" url="/portfolio"/>
+            <item4 jcr:primaryType="nt:unstructured" label="Contact" url="/contact"/>
+        </navLinks>
+        <hero jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/hero"
+            title="Our Services"
+            subtitle="End-to-end digital experience solutions"
+            description="&lt;p&gt;From strategy to execution, we deliver comprehensive digital solutions that transform businesses. Our team of experts combines creative thinking with technical excellence.&lt;/p&gt;"
+            bgImage="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&amp;q=80"
+            ctaLabel="View Plans"
+            ctaUrl="#pricing"/>
+        <cardgrid jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/cardgrid"
+            heading="What We Do">
+            <services jcr:primaryType="nt:unstructured">
+                <item0 jcr:primaryType="nt:unstructured"
+                    title="UI/UX Design"
+                    description="We create intuitive, user-centered designs that delight users."
+                    image="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&amp;q=80"
+                    ctaLabel="Learn More" ctaUrl="#"/>
+                <item1 jcr:primaryType="nt:unstructured"
+                    title="Web Development"
+                    description="Fast, scalable web applications using modern tech stacks."
+                    image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&amp;q=80"
+                    ctaLabel="Explore" ctaUrl="#"/>
+                <item2 jcr:primaryType="nt:unstructured"
+                    title="Digital Strategy"
+                    description="Data-driven strategies aligned with your business goals."
+                    image="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&amp;q=80"
+                    ctaLabel="Discover" ctaUrl="#"/>
+            </services>
+        </cardgrid>
+        <processsteps jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/processsteps"
+            heading="How We Work"
+            subtitle="A proven process that delivers results, every time"/>
+        <pricingtable jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/pricingtable"
+            heading="Simple Pricing"
+            subtitle="Transparent pricing designed to scale with your business"/>
+        <teaser jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/teaser"
+            image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&amp;q=80"
+            title="Not Sure Which Plan Fits?"
+            description="Schedule a free consultation with our team to discuss your project needs and find the perfect solution for your business."
+            ctaLabel="Book a Consultation"
+            ctaUrl="/content/ue-demo/en/contact"/>
+        <testimonial jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/testimonial"
+            quote="&lt;p&gt;Their strategic approach to UX design helped us increase user engagement by 150%.&lt;/p&gt;"
+            author="Marcus Johnson"
+            role="Product Director, CloudBase"
+            avatar="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&amp;q=80"/>
+        <linklist jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/linklist"
+            heading="Resources &amp; Case Studies">
+            <links jcr:primaryType="nt:unstructured">
+                <item0 jcr:primaryType="nt:unstructured" label="Case Studies" url="#"/>
+                <item1 jcr:primaryType="nt:unstructured" label="Documentation" url="#"/>
+                <item2 jcr:primaryType="nt:unstructured" label="Blog &amp; Insights" url="#"/>
+            </links>
+        </linklist>
+        <newslettersection jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/newslettersection"/>
+    </jcr:content>
+</jcr:root>

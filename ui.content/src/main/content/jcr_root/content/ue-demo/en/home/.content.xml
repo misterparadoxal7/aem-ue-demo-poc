@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/ue-demo/settings/wcm/templates/nexusdigital"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Home"
+        sling:resourceType="ue-demo/components/page/nexusdigital"
+        siteTitle="Nexus Digital"
+        footerCopyright="&#169; 2026 Nexus Digital. All rights reserved."
+        infoTooltip="Trusted by over 500 companies worldwide, including Fortune 500 organizations across multiple industries.">
+        <navLinks jcr:primaryType="nt:unstructured">
+            <item0 jcr:primaryType="nt:unstructured" label="Home" url="/"/>
+            <item1 jcr:primaryType="nt:unstructured" label="About" url="/about"/>
+            <item2 jcr:primaryType="nt:unstructured" label="Services" url="/services"/>
+            <item3 jcr:primaryType="nt:unstructured" label="Portfolio" url="/portfolio"/>
+            <item4 jcr:primaryType="nt:unstructured" label="Contact" url="/contact"/>
+        </navLinks>
+        <hero jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/hero"
+            title="Transform Your Digital Presence"
+            subtitle="We build experiences that drive growth"
+            description="&lt;p&gt;Nexus Digital is a full-service digital experience agency. We help brands create meaningful connections with their audiences through innovative design, cutting-edge technology, and data-driven strategies.&lt;/p&gt;"
+            ctaLabel="Get Started"
+            ctaUrl="/content/ue-demo/en/contact"
+            bgImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&amp;q=80"/>
+        <logocloud jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/logocloud"
+            heading="Trusted by Industry Leaders"/>
+        <cardgrid jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/cardgrid"
+            heading="Our Services">
+            <services jcr:primaryType="nt:unstructured">
+                <item0 jcr:primaryType="nt:unstructured"
+                    title="UI/UX Design"
+                    description="We create intuitive, user-centered designs that delight users and drive engagement across all digital touchpoints."
+                    image="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&amp;q=80"
+                    ctaLabel="Learn More"
+                    ctaUrl="#"/>
+                <item1 jcr:primaryType="nt:unstructured"
+                    title="Web Development"
+                    description="From React SPAs to AEM-powered sites, we build fast, scalable, and maintainable web applications using modern tech stacks."
+                    image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&amp;q=80"
+                    ctaLabel="Explore"
+                    ctaUrl="#"/>
+                <item2 jcr:primaryType="nt:unstructured"
+                    title="Digital Strategy"
+                    description="Data-driven strategies that align your business goals with user needs, ensuring measurable results and sustainable growth."
+                    image="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&amp;q=80"
+                    ctaLabel="Discover"
+                    ctaUrl="#"/>
+                <item3 jcr:primaryType="nt:unstructured"
+                    title="Cloud &amp; DevOps"
+                    description="End-to-end cloud infrastructure, CI/CD pipelines, and AEM managed services to keep your digital experience running smoothly."
+                    image="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&amp;q=80"
+                    ctaLabel="See More"
+                    ctaUrl="#"/>
+                <item4 jcr:primaryType="nt:unstructured"
+                    title="Content Strategy"
+                    description="Compelling content that tells your brand story, optimized for SEO and personalized across every customer touchpoint."
+                    image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&amp;q=80"
+                    ctaLabel="Learn More"
+                    ctaUrl="#"/>
+                <item5 jcr:primaryType="nt:unstructured"
+                    title="Analytics &amp; Optimization"
+                    description="Measure, analyze, and optimize your digital experiences with actionable insights and A/B testing at scale."
+                    image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&amp;q=80"
+                    ctaLabel="Get Insights"
+                    ctaUrl="#"/>
+            </services>
+        </cardgrid>
+        <whysection jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/richtextsection"
+            heading="Why Nexus Digital?"
+            body="&lt;p&gt;We combine creative design with technical excellence to deliver digital experiences that drive measurable results. Our team of strategists, designers, and engineers work collaboratively to transform complex challenges into elegant solutions.&lt;/p&gt;&lt;p&gt;From startups to enterprise, we have helped hundreds of organizations establish and scale their digital presence with confidence.&lt;/p&gt;"
+            approachHeading="Our Approach"
+            approachDescription="Every project begins with deep research and strategic thinking. We believe in data-driven design decisions and iterative development that puts your users first."/>
+        <teaser jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/teaser"
+            image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&amp;q=80"
+            title="Ready to Transform Your Digital Experience?"
+            description="Join hundreds of companies that trust Nexus Digital to build, scale, and optimize their digital presence. Let's create something extraordinary together."
+            ctaLabel="Start Your Project"
+            ctaUrl="/content/ue-demo/en/contact"/>
+        <statsbar jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/statsbar"
+            heading="Our Impact by the Numbers">
+            <stats jcr:primaryType="nt:unstructured">
+                <item0 jcr:primaryType="nt:unstructured" value="500+" label="Clients"/>
+                <item1 jcr:primaryType="nt:unstructured" value="50M+" label="Users Served"/>
+                <item2 jcr:primaryType="nt:unstructured" value="98%" label="Satisfaction Rate"/>
+                <item3 jcr:primaryType="nt:unstructured" value="15+" label="Years Experience"/>
+            </stats>
+        </statsbar>
+        <testimonial jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/testimonial"
+            quote="&lt;p&gt;Nexus Digital transformed our online presence completely. The team's expertise and dedication exceeded our expectations.&lt;/p&gt;"
+            author="Sarah Chen"
+            role="CEO, TechVista Solutions"
+            avatar="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&amp;q=80"/>
+        <accordion jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/accordion"
+            heading="Frequently Asked Questions">
+            <accordionItems jcr:primaryType="nt:unstructured">
+                <item0 jcr:primaryType="nt:unstructured"
+                    title="What services does Nexus Digital offer?"
+                    content="&lt;p&gt;We offer a comprehensive range of digital services including UI/UX design, web development, digital strategy, cloud &amp; DevOps, content strategy, and analytics &amp; optimization. Our team of 50+ specialists works across industries to deliver end-to-end digital experiences.&lt;/p&gt;"/>
+                <item1 jcr:primaryType="nt:unstructured"
+                    title="How long does a typical project take?"
+                    content="&lt;p&gt;Project timelines vary based on scope and complexity. A typical website redesign takes 8-16 weeks from discovery to launch. Larger transformation projects can take 3-6 months. We'll provide a detailed timeline during our initial consultation.&lt;/p&gt;"/>
+                <item2 jcr:primaryType="nt:unstructured"
+                    title="Do you work with AEM projects?"
+                    content="&lt;p&gt;Yes! We are AEM specialists. Our team has extensive experience with Adobe Experience Manager including AEM as a Cloud Service, content fragment models, headless implementations, Universal Editor integration, and custom component development. We can help with everything from migration to full-scale implementation.&lt;/p&gt;"/>
+                <item3 jcr:primaryType="nt:unstructured"
+                    title="What is your pricing model?"
+                    content="&lt;p&gt;We offer flexible pricing models including project-based fixed pricing, time &amp; materials, and dedicated team engagement. Contact us for a customized proposal based on your specific requirements and budget.&lt;/p&gt;"/>
+            </accordionItems>
+        </accordion>
+        <linklist jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/linklist"
+            heading="Related Resources">
+            <links jcr:primaryType="nt:unstructured">
+                <item0 jcr:primaryType="nt:unstructured" label="Case Studies" url="#"/>
+                <item1 jcr:primaryType="nt:unstructured" label="Documentation" url="#"/>
+                <item2 jcr:primaryType="nt:unstructured" label="Blog &amp; Insights" url="#"/>
+                <item3 jcr:primaryType="nt:unstructured" label="Resource Library" url="#"/>
+            </links>
+        </linklist>
+        <newslettersection jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/newslettersection"/>
+    </jcr:content>
+</jcr:root>

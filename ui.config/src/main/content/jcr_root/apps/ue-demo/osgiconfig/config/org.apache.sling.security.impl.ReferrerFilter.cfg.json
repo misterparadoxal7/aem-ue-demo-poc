@@ -1,0 +1,6 @@
+{
+  "allow.empty": true,
+  "allow.hosts": ["experience.adobe.com", "localhost:8443", "localhost:8001", "localhost:8000"],
+  "filter.methods": ["POST", "PUT", "DELETE", "COPY", "MOVE"],
+  "exclude.agents.regexp": []
+}

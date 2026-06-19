@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="${pageProperties.language}" data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page" data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>${page.title}</title>
+
+    <meta property="cq:pagemodel_root_url" content="${page.pageModelUrl}" data-sly-test="${page.pageModelUrl}"/>
+
+    <meta name="urn:adobe:aue:system:aem" content="aem:https://localhost:8443"/>
+    <meta name="urn:adobe:aue:config:service" content="https://localhost:8001"/>
+    <meta name="urn:adobe:aue:config:editor" content="https://experience.adobe.com/#/aem/editor"/>
+
+    <script src="https://universal-editor-service.adobe.io/cors.js"></script>
+
+    <script type="application/vnd.adobe.aue.component+json">
+    {
+        "groups": [
+            {
+                "title": "Nexus Digital Components",
+                "id": "nexus-digital",
+                "components": [
+                    {
+                        "title": "Hero",
+                        "id": "hero",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Card Grid",
+                        "id": "card-grid",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Testimonial",
+                        "id": "testimonial",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Stats Bar",
+                        "id": "stats-bar",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Accordion",
+                        "id": "accordion",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Link List",
+                        "id": "link-list",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Teaser",
+                        "id": "teaser",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Contact Form",
+                        "id": "contact-form",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Pricing Table",
+                        "id": "pricing-table",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Process Steps",
+                        "id": "process-steps",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Logo Cloud",
+                        "id": "logo-cloud",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Newsletter Section",
+                        "id": "newsletter-section",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Team Section",
+                        "id": "team-section",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Detail Content",
+                        "id": "detail-content",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Rich Text Section",
+                        "id": "richtext-section",
+                        "plugins": {
+                            "aem": {
+                                "page": {
+                                    "resourceType": "ue-demo/components/page"
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/etc.clientlibs/ue-demo/clientlibs/clientlib-nexusdigital.css" type="text/css"/>
+    <sly data-sly-call="${clientLib.css @ categories='cq.authoring.editor.sites.page'}" data-sly-test="${wcmmode.edit}"/>
+    <sly data-sly-call="${clientLib.js @ categories='cq.authoring.editor.sites.page'}" data-sly-test="${wcmmode.edit}"/>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="/etc.clientlibs/ue-demo/clientlibs/clientlib-nexusdigital.js"></script>
+    <sly data-sly-call="${clientLib.js @ categories='cq.authoring.editor.sites.page'}" data-sly-test="${wcmmode.edit}"/>
+</body>
+</html>

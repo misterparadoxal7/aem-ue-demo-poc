@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/ue-demo/settings/wcm/templates/nexusdigital"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="About Us"
+        sling:resourceType="ue-demo/components/page/nexusdigital"
+        siteTitle="Nexus Digital"
+        footerCopyright="&#169; 2026 Nexus Digital. All rights reserved."
+        infoTooltip="We have offices in 12 cities across 8 countries, serving clients globally.">
+        <navLinks jcr:primaryType="nt:unstructured">
+            <item0 jcr:primaryType="nt:unstructured" label="Home" url="/"/>
+            <item1 jcr:primaryType="nt:unstructured" label="About" url="/about"/>
+            <item2 jcr:primaryType="nt:unstructured" label="Services" url="/services"/>
+            <item3 jcr:primaryType="nt:unstructured" label="Portfolio" url="/portfolio"/>
+            <item4 jcr:primaryType="nt:unstructured" label="Contact" url="/contact"/>
+        </navLinks>
+        <hero jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/hero"
+            title="About Nexus Digital"
+            subtitle="Our story, mission, and team"
+            description="&lt;p&gt;We are a team of designers, engineers, and strategists passionate about creating digital experiences that make a difference. Founded in 2010, we've grown from a small studio to a global team of 50+ specialists serving clients across five continents.&lt;/p&gt;"
+            bgImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&amp;q=80"/>
+        <story jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/richtextsection"
+            heading="Our Story"
+            body="&lt;p&gt;We are a team of designers, engineers, and strategists passionate about creating digital experiences that make a difference. Founded in 2010, we've grown from a small studio to a global team of 50+ specialists serving clients across five continents.&lt;/p&gt;"
+            image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&amp;q=80"/>
+        <missionsection jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/richtextsection"
+            heading="Our Mission &amp; Values"
+            subtitle="We believe in building technology that makes a real difference">
+            <missionItems jcr:primaryType="nt:unstructured">
+                <item0 jcr:primaryType="nt:unstructured" icon="🎯" title="Purpose-Driven" description="Every project starts with understanding your core mission and goals."/>
+                <item1 jcr:primaryType="nt:unstructured" icon="🤝" title="Collaborative" description="We partner closely with your team, ensuring alignment at every stage."/>
+                <item2 jcr:primaryType="nt:unstructured" icon="🔬" title="Data-Informed" description="Design and development decisions are backed by research and analytics."/>
+                <item3 jcr:primaryType="nt:unstructured" icon="🚀" title="Results-Focused" description="We measure success by the tangible impact delivered to your business."/>
+            </missionItems>
+        </missionsection>
+        <teaser jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/teaser"
+            image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&amp;q=80"
+            title="Want to Join Our Team?"
+            description="We're always looking for talented individuals who share our passion for digital excellence. Check out our current openings."
+            ctaLabel="View Careers"
+            ctaUrl="#"/>
+        <teamsection jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/teamsection"
+            heading="Leadership Team"
+            subtitle="Meet the people driving digital innovation at Nexus Digital">
+            <teamMembers jcr:primaryType="nt:unstructured">
+                <item0 jcr:primaryType="nt:unstructured" name="Sarah Chen" role="CEO &amp; Founder" bio="Visionary leader with 20+ years in digital transformation."/>
+                <item1 jcr:primaryType="nt:unstructured" name="Marcus Johnson" role="CTO" bio="Architect of scalable cloud-native solutions."/>
+                <item2 jcr:primaryType="nt:unstructured" name="Elena Rodriguez" role="Design Director" bio="Award-winning designer crafting meaningful experiences."/>
+                <item3 jcr:primaryType="nt:unstructured" name="James Okonkwo" role="Head of Engineering" bio="Full-stack engineer leading high-performance teams."/>
+            </teamMembers>
+        </teamsection>
+        <statsbar jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/statsbar"
+            heading="Our Impact by the Numbers">
+            <stats jcr:primaryType="nt:unstructured">
+                <item0 jcr:primaryType="nt:unstructured" value="500+" label="Clients"/>
+                <item1 jcr:primaryType="nt:unstructured" value="50M+" label="Users Served"/>
+                <item2 jcr:primaryType="nt:unstructured" value="98%" label="Satisfaction Rate"/>
+                <item3 jcr:primaryType="nt:unstructured" value="15+" label="Years Experience"/>
+            </stats>
+        </statsbar>
+        <accordion jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/accordion"
+            heading="Frequently Asked Questions">
+            <accordionItems jcr:primaryType="nt:unstructured">
+                <item0 jcr:primaryType="nt:unstructured"
+                    title="What makes Nexus Digital different?"
+                    content="&lt;p&gt;We combine deep AEM expertise with modern React engineering to deliver digital experiences that are both powerful and flexible. Our team has delivered 200+ successful projects.&lt;/p&gt;"/>
+                <item1 jcr:primaryType="nt:unstructured"
+                    title="How many team members do you have?"
+                    content="&lt;p&gt;We have 50+ full-time team members across design, engineering, strategy, and project management. Our team is distributed across 12 offices worldwide.&lt;/p&gt;"/>
+                <item2 jcr:primaryType="nt:unstructured"
+                    title="Do you offer ongoing support?"
+                    content="&lt;p&gt;Yes, we offer managed services and ongoing support for all our projects. This includes AEM maintenance, performance monitoring, content updates, and continuous improvement.&lt;/p&gt;"/>
+            </accordionItems>
+        </accordion>
+        <newslettersection jcr:primaryType="nt:unstructured"
+            sling:resourceType="ue-demo/components/newslettersection"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Testimonial"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs">
+                <items jcr:primaryType="nt:unstructured">
+                    <testimonial
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Testimonial"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <quote
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldLabel="Quote"
+                                name="./quote">
+                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                    <paragraphformats
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*">
+                                        <paragraphFormats jcr:primaryType="nt:unstructured">
+                                            <p
+                                                jcr:primaryType="nt:unstructured"
+                                                description="Paragraph"
+                                                value="&lt;p&gt;"/>
+                                            <h1
+                                                jcr:primaryType="nt:unstructured"
+                                                description="Heading 1"
+                                                value="&lt;h1&gt;"/>
+                                            <h2
+                                                jcr:primaryType="nt:unstructured"
+                                                description="Heading 2"
+                                                value="&lt;h2&gt;"/>
+                                            <h3
+                                                jcr:primaryType="nt:unstructured"
+                                                description="Heading 3"
+                                                value="&lt;h3&gt;"/>
+                                            <h4
+                                                jcr:primaryType="nt:unstructured"
+                                                description="Heading 4"
+                                                value="&lt;h4&gt;"/>
+                                            <h5
+                                                jcr:primaryType="nt:unstructured"
+                                                description="Heading 5"
+                                                value="&lt;h5&gt;"/>
+                                            <h6
+                                                jcr:primaryType="nt:unstructured"
+                                                description="Heading 6"
+                                                value="&lt;h6&gt;"/>
+                                        </paragraphFormats>
+                                    </paragraphformats>
+                                    <format
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                </rtePlugins>
+                            </quote>
+                            <author
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Author"
+                                name="./author"/>
+                            <role
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Role"
+                                name="./role"/>
+                            <avatar
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Avatar"
+                                name="./avatar"
+                                rootPath="/content/dam"/>
+                        </items>
+                    </testimonial>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
